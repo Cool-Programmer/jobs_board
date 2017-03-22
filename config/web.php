@@ -55,6 +55,7 @@ $config = [
                 'about'=>'site/about',
                 'contact'=>'site/contact',
                 'login'=>'site/login',
+                'register'=>'/users/register',
                 'categories'=>'categories/index',
                 'jobs'=>'jobs/index',
                 '/'=>'site/index',

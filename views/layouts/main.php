@@ -48,6 +48,11 @@ AppAsset::register($this);
             ['label' => 'Categories', 'url' => ['/categories/index']],
             ['label' => 'Jobs', 'url' => ['/jobs/index']],
             Yii::$app->user->isGuest ? (
+                ['label' => 'Register', 'url' => ['/users/register']]
+            ) : (
+                ''
+            ),
+            Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 '<li>'

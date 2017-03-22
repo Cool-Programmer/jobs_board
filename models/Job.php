@@ -77,9 +77,14 @@ class Job extends \yii\db\ActiveRecord
         return $this->hasOne(Category::className(), ['id' => 'category_id']);
     }
 
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
     public function beforeSave($insert)
     {
-        $this->user_id = 1;
+        $this->user_id = Yii::$app->user->identity->id; // current_user
         return parent::beforeSave($insert);
     }
 }

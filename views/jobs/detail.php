@@ -1,5 +1,10 @@
 <a href="/index/jobs" class="btn btn-warning">Back to Job Listings</a>
-<h2><?= $job->title ?> <small class="text-muted">in <?= $job->city ?>, <?= $job->state ?></small> <span class="pull-right"> <a class="btn btn-primary" href="/jobs/edit/<?=$job->id?>">Edit</a> <a class="btn btn-danger" href="/jobs/delete/<?=$job->id?>">Delete</a> </span> </h2>
+<h2><?= $job->title ?> <small class="text-muted">in <?= $job->city ?>, <?= $job->state ?></small>
+<?php if(Yii::$app->user->identity->id == $job->user_id) : ?>
+  <span class="pull-right"> <a class="btn btn-primary" href="/jobs/edit/<?=$job->id?>">Edit</a> <a class="btn btn-danger" href="/jobs/delete/<?=$job->id?>">Delete</a> </span> 
+<?php endif ?>
+
+</h2>
 <div class="well">
   <h4>Job Description</h4>
   <p><?= $job->description; ?></p>

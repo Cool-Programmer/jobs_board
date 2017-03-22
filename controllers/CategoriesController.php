@@ -3,6 +3,7 @@
 namespace app\controllers;
 use yii\data\Pagination;
 use app\models\Category;
+use yii\filters\AccessControl;
 use Yii;
 
 class CategoriesController extends \yii\web\Controller
@@ -39,5 +40,23 @@ class CategoriesController extends \yii\web\Controller
       ]);
   }
 
+
+  /* Restriction */
+  public function behaviors()
+  {
+    return [
+      'access' => [
+        'class' => AccessControl::className(),
+        'only' => ['create'],
+        'rules' => [
+          [
+            'actions' => ['create'],
+            'allow' => true,
+            'roles' => ['@'],
+          ],
+        ], 
+      ]
+    ];
+  }
 
 }
