@@ -5,20 +5,20 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%tbl_category}}".
+ * This is the model class for table "{{%tbl_type}}".
  *
  * @property integer $id
  * @property string $name
  * @property string $create_date
  */
-class Category extends \yii\db\ActiveRecord
+class Type extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return '{{%tbl_category}}';
+        return '{{%tbl_type}}';
     }
 
     /**
@@ -43,10 +43,5 @@ class Category extends \yii\db\ActiveRecord
             'name' => 'Name',
             'create_date' => 'Create Date',
         ];
-    }
-
-    public function getJob()
-    {
-        return $this->hasMany(Job::className(), ['category_id' => 'id']);
     }
 }
